@@ -40,20 +40,45 @@ class App(customtkinter.CTk):
     def btn_calcular_on_click(self):
         marca = self.combobox_marca.get()
         cantidad_lamparitas = int(self.combobox_cantidad.get())
-        precio = int(800)
-        #A
+        precio = int(800) * cantidad_lamparitas
+
+        #A. Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%.
         if cantidad_lamparitas >= 6:
             descuento = precio - (precio * 50 / 100)
             mensaje = str(descuento)
-        #B
+
+        #B. Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
         if cantidad_lamparitas == 5 and marca == "ArgentinaLuz":
             descuento = precio - (precio * 40 / 100)
             mensaje = str(descuento)
-            if cantidad_lamparitas == 5 and not marca == "ArgentinaLuz":
-                descuento = precio - (precio * 30 /100)
-                mensaje = str(descuento)
+        elif cantidad_lamparitas == 5 and marca != "ArgentinaLuz":
+            descuento = precio - (precio * 30 /100)
+            mensaje = str(descuento)
+
+        #C. Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
+        if cantidad_lamparitas == 4 and marca == "ArgentinaLuz" or cantidad_lamparitas == 4 and marca == "FelipeLamparas":
+            descuento = precio - (precio * 25 /100)
+            mensaje = str(descuento)
+        elif cantidad_lamparitas == 4 and marca != "ArgentinaLuz" or cantidad_lamparitas == 4 and marca != "FelipeLamparas":
+            descuento = precio - (precio * 20 /100)
+            mensaje = str(descuento)
+
+        #D. Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
+        if cantidad_lamparitas == 3 and marca == "ArgentinaLuz":
+            descuento = precio - (precio *15 /100)
+            mensaje = str(descuento)
+        elif cantidad_lamparitas == 3 and marca == "FelipeLamparas":
+            descuento = precio - (precio *10 /100)
+            mensaje = str(descuento)
+        elif cantidad_lamparitas == 3 and marca != "ArgentinaLuz" or cantidad_lamparitas == 3 and marca != "FelipeLamparas":
+            descuento = precio - (precio *5 /100)
+            mensaje = str(descuento)
+        
+        #E. Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
+        if precio >4000:
+            descuento = precio - (precio *5 /100)
+            mensaje = str(descuento)
         alert(title="TP 4",message=mensaje)
-            
         
     
 if __name__ == "__main__":
