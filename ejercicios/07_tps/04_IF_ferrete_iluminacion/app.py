@@ -75,7 +75,7 @@ class App(customtkinter.CTk):
         #E. Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
         if precio  > 4000:
             precio = (precio * .95)
-        mensaje = f"El total seria: {precio}"
+        mensaje = f"El total es: {precio}"
         alert(title="TP 4",message=mensaje)
         
     
