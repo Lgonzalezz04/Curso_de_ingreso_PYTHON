@@ -70,7 +70,7 @@ class App(customtkinter.CTk):
             elif marca == "FelipeLamparas":
                 precio = (precio * .90)
             else:
-                percio = (precio * .95)
+                precio = (precio * .95)
 
         #E. Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
         if precio  > 4000:
