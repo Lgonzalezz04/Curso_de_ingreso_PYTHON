@@ -36,7 +36,36 @@ class App(customtkinter.CTk):
                               columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+    
+        resultado_prompt = "si"
+        bandera_primero = True
+
+        while resultado_prompt != None:
+            
+            numero = prompt(title="Ej 09",prompt="Ingrese un numero")
+            numero = int(numero)
+
+            if (bandera_primero == True):
+                maximo = numero
+                minimo = numero
+                bandera_primero = False
+            else :
+                if numero < minimo:
+                    minimo = numero
+
+                elif numero > maximo:
+                    maximo = numero
+                
+                
+
+            resultado_prompt = prompt(title="Ej 09",prompt="Desea seguir?")
+
+
+
+        self.txt_maximo.delete(0, 1000)
+        self.txt_maximo.insert(0, maximo)
+        self.txt_minimo.delete(0, 1000)
+        self.txt_minimo.insert(0, minimo)
 
 
 if __name__ == "__main__":
