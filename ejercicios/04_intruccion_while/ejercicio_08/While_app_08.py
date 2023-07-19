@@ -34,7 +34,6 @@ class App(customtkinter.CTk):
     def btn_comenzar_ingreso_on_click(self):
         suma = 0
         producto = 1
-        contador = 0
         numero = 0
         while True:
             numero = prompt(title="Ej 08", prompt= "Ingrese un numero")
@@ -44,7 +43,6 @@ class App(customtkinter.CTk):
                 producto *= int(numero)
             else:
                 suma += int(numero)
-            contador += 1
 
         self.txt_suma_acumulada.delete(0,10000)
         self.txt_suma_acumulada.insert(0,suma)
