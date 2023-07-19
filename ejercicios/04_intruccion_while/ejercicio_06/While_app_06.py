@@ -6,6 +6,8 @@ import customtkinter
 
 '''
 Enunciado:
+Apellido:Gonzalez Abeijon
+Nombre:Lucas
 Al presionar el botón ‘Comenzar ingreso’, solicitar 5 números mediante prompt. 
 Calcular la suma acumulada y el promedio de los números ingresados. 
 Luego informar los resultados en las cajas de texto txt_suma_acumulada y txt_promedio
