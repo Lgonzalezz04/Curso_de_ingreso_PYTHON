@@ -51,11 +51,11 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
         contador = 0
-        apellido = None
-        edad = None
-        estado_civil = None
-        legajo = None
-        while contador < 2:
+        apellido = ""
+        edad = 0
+        estado_civil = ""
+        legajo = ""
+        while contador < 3:
             apellido = prompt("Tp 5", "Ingrese su apellido")
             contador += 1
             while (apellido == None or apellido.isdigit()):
@@ -65,14 +65,18 @@ class App(customtkinter.CTk):
             edad = prompt("Tp 5", "Ingrese su edad")
             edad = int(edad)
             contador += 1
-            if not (edad >=18 and edad <= 90):
+            while not (edad >=18 and edad <= 90):
                 alert("Tp 5", "Debes ser mayor de 18 años o menor de 90 años")
                 edad = prompt("Tp 5", "Ingrese su edad nuevamente")
                 edad = int(edad)
-            
-            estado_civil = prompt("Tp 5", "Ingrese su estado civil")
-            contador += 1
 
+            estado_civil = prompt("Tp 5", prompt="Ingrese su Estado Civil")
+            self.combobox_tipo.set(estado_civil)
+            while (estado_civil == None or estado_civil.isdigit()):
+                estado_civil = prompt("Tp 5", "Intenta otra vez")
+                self.combobox_tipo.set(estado_civil)
+            contador += 1
+            
             legajo = prompt("Tp 5", "Ingrese su numero de legajo (4 digitos)")
             contador += 1
             
