@@ -52,7 +52,7 @@ class App(customtkinter.CTk):
     def btn_validar_on_click(self):
         contador = 0
         apellido = ""
-        edad = 0
+        edad = None
         estado_civil = ""
         legajo = ""
         while contador < 3:
