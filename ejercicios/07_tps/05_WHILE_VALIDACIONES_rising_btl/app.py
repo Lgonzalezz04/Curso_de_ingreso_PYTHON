@@ -53,25 +53,37 @@ class App(customtkinter.CTk):
         contador = 0
         apellido = None
         edad = None
-        estado_civil = self.combobox_tipo.get()
+        estado_civil = None
         legajo = None
         while contador < 2:
             apellido = prompt("Tp 5", "Ingrese su apellido")
             contador += 1
+            while (apellido == None or apellido.isdigit()):
+                apellido = prompt("Tp 5", "Ingrese un apellido real")
+
+
             edad = prompt("Tp 5", "Ingrese su edad")
             edad = int(edad)
             contador += 1
-            legajo = prompt("Tp 5", "Ingrese su numero de legajo")
-            contador += 1
             if not (edad >=18 and edad <= 90):
                 alert("Tp 5", "Debes ser mayor de 18 años o menor de 90 años")
-                break
+                edad = prompt("Tp 5", "Ingrese su edad nuevamente")
+                edad = int(edad)
+            
+            estado_civil = prompt("Tp 5", "Ingrese su estado civil")
+            contador += 1
+
+            legajo = prompt("Tp 5", "Ingrese su numero de legajo (4 digitos)")
+            contador += 1
+            
+
             self.txt_apellido.delete(0,10000)
             self.txt_apellido.insert(0,apellido)
             self.txt_edad.delete(0,10000)
             self.txt_edad.insert(0,edad)
             self.txt_legajo.delete(0,10000)
             self.txt_legajo.insert(0,legajo)
+
             alert(title="Tp 5", message= "Apellido: {0}\n Edad: {1}\n Estado civil: {2}\n Legajo: {3}".format(apellido,edad,estado_civil,legajo))
         
         
