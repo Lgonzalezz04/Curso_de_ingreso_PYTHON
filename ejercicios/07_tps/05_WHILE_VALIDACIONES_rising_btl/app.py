@@ -50,7 +50,33 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        contador = 0
+        apellido = None
+        edad = None
+        estado_civil = self.combobox_tipo.get()
+        legajo = None
+        while contador < 2:
+            apellido = prompt("Tp 5", "Ingrese su apellido")
+            contador += 1
+            edad = prompt("Tp 5", "Ingrese su edad")
+            edad = int(edad)
+            contador += 1
+            legajo = prompt("Tp 5", "Ingrese su numero de legajo")
+            contador += 1
+            if not (edad >=18 and edad <= 90):
+                alert("Tp 5", "Debes ser mayor de 18 años o menor de 90 años")
+                break
+            self.txt_apellido.delete(0,10000)
+            self.txt_apellido.insert(0,apellido)
+            self.txt_edad.delete(0,10000)
+            self.txt_edad.insert(0,edad)
+            self.txt_legajo.delete(0,10000)
+            self.txt_legajo.insert(0,legajo)
+            alert(title="Tp 5", message= "Apellido: {0}\n Edad: {1}\n Estado civil: {2}\n Legajo: {3}".format(apellido,edad,estado_civil,legajo))
+        
+        
+
+
 
 
 if __name__ == "__main__":
