@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Apellido: Gonzalez Abeijon
+Nombre: Lucas
 Rising BTL. Empresa dedicada a la toma de datos para realizar estadísticas y censos nos pide realizar una carga de datos validada e ingresada 
 por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) y luego asignarla a cuadros de textos. 
 
@@ -72,12 +74,17 @@ class App(customtkinter.CTk):
 
             estado_civil = prompt("Tp 5", prompt="Ingrese su Estado Civil")
             self.combobox_tipo.set(estado_civil)
+            while not (estado_civil == "Soltero/a" or estado_civil == "Divorciado/a" or estado_civil == "Casado/a" or estado_civil == "Viudo/a"):
+                estado_civil = prompt("Tp 5", "Ingrese un Estado Civil real")
+                self.combobox_tipo.set(estado_civil)
             while (estado_civil == None or estado_civil.isdigit()):
                 estado_civil = prompt("Tp 5", "Intenta otra vez")
                 self.combobox_tipo.set(estado_civil)
             contador += 1
             
-            legajo = prompt("Tp 5", "Ingrese su numero de legajo (4 digitos)")
+            legajo = int(prompt("Tp 5", "Ingrese su numero de legajo"))
+            while legajo >= 10000:
+                legajo = int(prompt("Tp 5", "Ingresaste mas de 4 digitos"))
             contador += 1
             
 
