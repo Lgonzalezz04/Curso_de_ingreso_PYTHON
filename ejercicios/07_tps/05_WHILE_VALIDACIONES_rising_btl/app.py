@@ -60,7 +60,7 @@ class App(customtkinter.CTk):
         while contador < 3:
             apellido = prompt("Tp 5", "Ingrese su apellido")
             contador += 1
-            while (apellido == None or apellido.isdigit()):
+            while (apellido == "" or apellido.isdigit()):
                 apellido = prompt("Tp 5", "Ingrese un apellido real")
 
 
